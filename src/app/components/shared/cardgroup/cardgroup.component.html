@@ -1,0 +1,7 @@
+<div class="d-flex card-group mb-5">
+    <h3 class="mb-4 main-title">{{cardsInfo.title}}</h3>
+    <a href="" class="ms-auto home-link">VER TODO</a>
+    <div class="card-container w-100">
+        <app-card *ngFor="let cardInfo of cardsInfo.items" class="card-item" [info]="cardInfo"></app-card>
+    </div>
+</div>

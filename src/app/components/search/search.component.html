@@ -1,0 +1,6 @@
+<div class="search margin-nav px-4 mb-4">
+    <app-songsgroup [tracks]="_search.trackList" *ngIf="_search.trackList"></app-songsgroup>
+    <app-cardgroup [cardsInfo]="_search.artistList" *ngIf="_search.artistList"></app-cardgroup>
+    <app-cardgroup [cardsInfo]="_search.albumsSearch" *ngIf="_search.albumsSearch"></app-cardgroup>
+    <app-cardgroup [cardsInfo]="_search.playlistsSearch" *ngIf="_search.playlistsSearch"></app-cardgroup>
+</div>

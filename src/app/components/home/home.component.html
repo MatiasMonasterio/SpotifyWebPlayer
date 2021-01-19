@@ -1,0 +1,5 @@
+<div class="home margin-nav px-4 mb-4">
+    <app-cardgroup [cardsInfo]="newRelease" *ngIf="newRelease"></app-cardgroup>
+    <app-cardgroup [cardsInfo]="userPlaylists" *ngIf="userPlaylists"></app-cardgroup>
+    <app-cardgroup [cardsInfo]="featuredPlaylists" *ngIf="featuredPlaylists"></app-cardgroup>
+</div>

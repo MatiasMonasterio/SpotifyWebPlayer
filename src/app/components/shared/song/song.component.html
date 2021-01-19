@@ -1,0 +1,54 @@
+<div class="song">
+    <div class="song__container p-2 d-flex">
+        <div class="song__order ps-3 pe-4" *ngIf="index">
+            <span class="song__order-number"> {{ index + 1 }} </span>
+            <button class="song__order-play">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+            </button>
+        </div>
+        <button class="song__img-container p-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill song__img-play" viewBox="0 0 16 16">
+                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg>
+            <img class="song__img me-3" [src]="track.album.images[0].url" [alt]="track.name">
+        </button>
+        <div class="song__info me-auto">
+            <h5 class="song__title mb-0">{{ track.name }}</h5>
+            <p class="song__artist m-0 d-flex align-items-center" *ngIf="!index">
+                <span class="song__artist-explicit me-2" *ngIf="track.explicit">E</span>
+                <a href="" class="song__artist-link" *ngFor="let artist of track.artists">{{ artist.name }}</a>
+            </p>
+        </div>
+
+        <div class="song__reproductions mx-auto" *ngIf="index">
+            <span class="song__reproductions-number">2,489,361</span>
+        </div>
+
+        <button class="song__like me-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+        </button>
+        <span class="song__time me-3">3:37</span>
+        <button class="song__menu" id="dropdownMenuSong" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+            </svg>
+        </button>
+        <div class="song__menu-dropdown dropdown-menu" aria-labelledby="dropdownMenuSong">
+            <ul class="song__menu-dropdown-list p-1">
+                <li class="song__menu-dropdown-item px-3 py-2">Agregar a la fila de reproducción</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Ir a radio de la canción</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Ir al artista</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Mostrar créditos</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Guardar en Tus Me Gusta</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Agregar a playlist</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Compartir</li>
+                <li class="song__menu-dropdown-item px-3 py-2">Abrir en la aplicación de escritorio</li>
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,8 @@
+<div class="d-flex card-group mb-5">
+    <h3 class="mb-4 main-title">{{ tracks.title }}</h3>
+    <a href="" class="ms-auto home-link">VER TODO</a>
+    <div class="w-100 d-flex flex-column">
+        <!-- <app-song *ngFor="let track of tracks.items; let i = index" [track]="track" [index]="i"></app-song> -->
+        <app-song *ngFor="let track of tracks.items" [track]="track"></app-song>
+    </div>
+</div>

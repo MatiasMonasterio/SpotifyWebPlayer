@@ -1,0 +1,119 @@
+<div class="artist mb-4">
+    <div class="artist__hero mb-4" [ngStyle]="{'background-image': 'url('+artist.images[0].url+')'}" *ngIf="artist">
+        <div class="artist__info p-4">
+            <span class="artist__info-span d-flex align-items-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.6596l-3.38079 1.8543-1.84158-3.3877-3.84662-.2679.28231-3.8456-3.09118-2.3049 2.31658-3.0825-1.3543-3.61028 3.61534-1.34071.81255-3.76935 3.76627.82672L12 0l2.7214 2.73168 3.7663-.82672.8125 3.76935 3.6154 1.34071-1.3543 3.61028 2.3166 3.0825-3.0912 2.3049.2823 3.8456-3.8466.2679-1.8416 3.3877L12 21.6596z" fill="#2E77D0">
+                    </path>
+                    <path d="M16.8637 7.41226l-6.6435 7.77824-2.80421-3.2842-.4935.5775 3.29771 3.8617 7.2135-8.44649-.57-.48675z" fill="#fff">
+                    </path>
+                </svg>
+                <span class="ms-1">Artista verificado</span>
+            </span>
+            <h1 class="artist__info-name mb-1">{{ artist.name }}</h1>
+            <span class="artist__info-span">220,739 oyentes mensuales</span>
+        </div>
+    </div>
+
+    <div class="artist__main px-4">
+        <div class="artist__menu mb-5">
+            <button class="usernav__play-button artist__menu-playbutton me-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+            </button>
+    
+            <button class="artist__menu-followbutton px-3 py-1 text-uppercase me-4">
+                Seguir
+            </button>
+    
+            <button class="artist__menu-dropdownbutton" id="dropdownMenuArtist" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+            </button>
+
+            <div class="song__menu-dropdown dropdown-artist dropdown-menu" aria-labelledby="dropdownMenuArtist">
+                <ul class="song__menu-dropdown-list p-1 dropdown-artist__list">
+                    <li class="song__menu-dropdown-item dropdown-artist__item px-3 py-2">Seguir</li>
+                    <li class="song__menu-dropdown-item dropdown-artist__item px-3 py-2">Ir a radio del artista</li>
+                    <li class="song__menu-dropdown-item dropdown-artist__item px-3 py-2">Compartir</li>
+                    <li class="song__menu-dropdown-item dropdown-artist__item px-3 py-2">Abrir en la aplicación de escritorio</li>
+                </ul>
+            </div>
+        </div>
+
+        <app-songsgroup [tracks]="topTracks" *ngIf="topTracks"></app-songsgroup>
+        <app-cardgroup [cardsInfo]="albums" *ngIf="albums"></app-cardgroup>
+        <app-cardgroup [cardsInfo]="artistsRelated" *ngIf="artistsRelated"></app-cardgroup>
+
+        <div class="artist__bio mb-5">
+            <h3 class="mb-4 main-title">Acerca de</h3>
+
+            <button class="artist__bio-container p-4 d-flex flex-column" [ngStyle]="{'background-image': 'url('+artist.images[0].url+')'}" *ngIf="artist">
+                <div class="artist__bio-text">
+                    <span class="artist__bio-listener mb-2 d-inline-block">220,739 oyentes mensuales</span>
+                    <p class="artist__bio-info">
+                        It can be the similarities between two people that draw them together, 
+                        but it's the differences between them that create something special. It would 
+                        be nothing if those two polar opposites failed to meet in the middle. Such is 
+                        the story of Pan-Pot.
+                    </p>
+                </div>
+            </button>
+        </div>
+
+        <div class="artist__calender">
+            <h3 class="mb-4 main-title">De gira</h3>
+
+            <a href="#" class="artist__calender-link d-flex align-items-center mb-4">
+                <div class="artist__calender-graphic calender-graphic text-center d-flex flex-column">
+                    <div class="calender-graphic__month px-4 py-1 text-uppercase">
+                        Dic.
+                    </div>
+                    <div class="calender-graphic__day">
+                        29
+                    </div>
+                </div>
+
+                <div class="artist__calender-info ms-3">
+                    <h4 class="artist__calender-title mb-1">Gas Tower presents: DJ Sneak x Pan Pot x Nicole Moubader x Kittin x Hito</h4>
+                    <p class="mb-0"><span>mar., 19:00</span> <span>Livestream, Boulder</span></p>
+                </div>
+            </a>
+
+            <a href="#" class="artist__calender-link d-flex align-items-center mb-4">
+                <div class="artist__calender-graphic calender-graphic text-center d-flex flex-column">
+                    <div class="calender-graphic__month px-4 py-1 text-uppercase">
+                        Dic.
+                    </div>
+                    <div class="calender-graphic__day">
+                        29
+                    </div>
+                </div>
+
+                <div class="artist__calender-info ms-3">
+                    <h4 class="artist__calender-title mb-1">Gas Tower presents: DJ Sneak x Pan Pot x Nicole Moubader x Kittin x Hito</h4>
+                    <p class="mb-0"><span>mar., 19:00</span> <span>Livestream, Boulder</span></p>
+                </div>
+            </a>
+
+            <a href="#" class="artist__calender-link d-flex align-items-center mb-4">
+                <div class="artist__calender-graphic calender-graphic text-center d-flex flex-column">
+                    <div class="calender-graphic__month px-4 py-1 text-uppercase">
+                        Dic.
+                    </div>
+                    <div class="calender-graphic__day">
+                        29
+                    </div>
+                </div>
+
+                <div class="artist__calender-info ms-3">
+                    <h4 class="artist__calender-title mb-1">Gas Tower presents: DJ Sneak x Pan Pot x Nicole Moubader x Kittin x Hito</h4>
+                    <p class="mb-0"><span>mar., 19:00</span> <span>Livestream, Boulder</span></p>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+</div>
