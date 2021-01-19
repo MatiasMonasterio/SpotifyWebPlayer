@@ -13,7 +13,7 @@ export class SpotifyService {
 
   constructor( private http: HttpClient ) {
     this.baseUrl = 'https://api.spotify.com/v1/';
-    this.tokenAPI = 'Bearer BQBC-L6IuWaq2ohNcWY0le9lU_X8exGMh3GieS8BPJ0183M6UZcVHTKNIujJSlYfaAww69zDUaiBmIpIQW4';
+    this.tokenAPI = 'Bearer BQBEgETSbXBX4q0GUzNj6GEhIF4fCoy6hi_vRcuNPXkbxmfradA2Y67uby981-j4gEIRjOG4seDnqEBnoRQ';
   }
 
   getNewReleases(): Observable<any> {
