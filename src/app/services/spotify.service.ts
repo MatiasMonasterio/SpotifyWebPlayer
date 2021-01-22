@@ -16,12 +16,12 @@ export class SpotifyService {
     this.baseUrl = 'https://api.spotify.com/v1/';
   }
 
-  init() {
+  init(): Observable<any> {
     if( !this.tokenAPI ) {
       return this._spotifyToken.getToken()
       .pipe( map( token => {this.tokenAPI = `Bearer ${ token }`; console.log( this.tokenAPI )} ));
     } 
-    
+
     else return of([]);
   }
 
