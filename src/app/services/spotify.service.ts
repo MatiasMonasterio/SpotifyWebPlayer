@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable, pipe } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { SpotifyTokenService } from './spotify-token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,17 @@ export class SpotifyService {
   private baseUrl: string;
   private tokenAPI: string;
 
-  constructor( private http: HttpClient ) {
+  constructor( private http: HttpClient, private _spotifyToken: SpotifyTokenService ) {
     this.baseUrl = 'https://api.spotify.com/v1/';
-    this.tokenAPI = 'Bearer BQA2grBQ7TOHAZuTxsMSEA5dSnHbOL0KPqhUphU521lPHtNRMzo-7S1EBf16di3Uu3j9Zh2_dmRbbt9B2wc';
+  }
+
+  init() {
+    if( !this.tokenAPI ) {
+      return this._spotifyToken.getToken()
+      .pipe( map( token => {this.tokenAPI = `Bearer ${ token }`; console.log( this.tokenAPI )} ));
+    } 
+    
+    else return of([]);
   }
 
   getNewReleases(): Observable<any> {

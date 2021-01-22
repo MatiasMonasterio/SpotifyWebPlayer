@@ -12,7 +12,9 @@ export class NavbarComponent implements OnInit {
   userPlaylists: Array<string>;
 
   constructor( private _spotify: SpotifyService ) {
-    this.getUserPlaylists();
+    this._spotify.init()
+      .subscribe(() => this.getUserPlaylists() )
+    
   }
 
   ngOnInit(): void {

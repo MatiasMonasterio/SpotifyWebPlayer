@@ -14,9 +14,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   userPlaylists: any;
 
   constructor(private _spotify: SpotifyService ) {
-    this.getNewReleases();
-    this.getFeaturedPlaylists();
-    this.getUserPlaylists();
+    this._spotify.init()
+      .subscribe( () => {
+        this.getNewReleases();
+        this.getFeaturedPlaylists();
+        this.getUserPlaylists();
+      });
   }
 
   getNewReleases(): void {

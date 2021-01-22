@@ -31,7 +31,7 @@ export class UsernavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search( query: string ) {
+  search( query: string ) {    
     this.inputValue = query;
     this.router.navigate([ '/search', query ]);
 

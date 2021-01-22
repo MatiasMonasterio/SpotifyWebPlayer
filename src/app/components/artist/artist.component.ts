@@ -17,13 +17,18 @@ export class ArtistComponent implements OnInit, OnDestroy {
 
   constructor( private activatedRoute: ActivatedRoute, private _spotifty: SpotifyService ) {
     this.activatedRoute.params.subscribe( param => {
-      this.getTopTrackArtist( param.id );
-      this.getAlbumsArtist( param.id );
-      this.getArtistsRelated( param.id );
+      this._spotifty.init()
+        .subscribe(() => {
 
-      this._spotifty.getArtist( param.id )
-        .subscribe( resp => { 
-          this.artist = resp;          
+          this.getTopTrackArtist( param.id );
+          this.getAlbumsArtist( param.id );
+          this.getArtistsRelated( param.id );
+    
+          this._spotifty.getArtist( param.id )
+            .subscribe( resp => { 
+              this.artist = resp;          
+            });
+
         });
     });
   }
