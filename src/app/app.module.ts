@@ -42,7 +42,7 @@ import { CardimagePipe } from './pipe/cardimage.pipe';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot( router ),
+    RouterModule.forRoot( router, { useHash: true }),
     HttpClientModule
   ],
   providers: [],
